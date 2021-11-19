@@ -1,7 +1,7 @@
 # QtPexelsLib
 Pexels Client made with Qt (works with Qt5 and Qt6) and C++ (11+), you will need to get an API KEY for your app here : https://www.pexels.com/api/.
 
-The included Api Key will soon be disabled as it was just for demonstration purposes.
+**_NOTE:_**   The included Api Key will soon be disabled as it was just for demonstration purposes.
 
 # Whats included
 Both the Photos and Videos apis are supported, including :
