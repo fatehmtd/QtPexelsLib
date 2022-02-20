@@ -13,7 +13,7 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(BUILD_SHARED_LIBS "Build shared library")
+option(BUILD_SHARED_LIBS "Build shared library" ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Network REQUIRED)
@@ -46,13 +46,16 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 if(BUILD_SHARED_LIBS)
     add_library(QtPexelsLib SHARED ${libSrc})
+	target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=1)
 else()
     add_library(QtPexelsLib STATIC ${libSrc})
+	target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=0)
 endif()
 
 target_link_libraries(QtPexelsLib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 
-target_compile_definitions(QtPexelsLib PRIVATE QTPEXELS_LIB)
+target_compile_definitions(QtPexelsLib PUBLIC QTPEXELS_LIB=1)
+
 
 
 ##############################
@@ -67,7 +70,8 @@ if(BUILD_EXAMPLE)
     )
 
     target_compile_definitions(QtPexelsLib INTERFACE QTPEXELS_LIB=0)
-    find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network REQUIRED)
+	#target_compile_definitions(QtPexelsLib INTERFACE BUILD_STATIC=1)
+    find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network REQUIRED)    
     add_executable(QtPexelsLibExample ${exampleSrc})
     target_link_libraries(QtPexelsLibExample PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network QtPexelsLib)
 endif()
