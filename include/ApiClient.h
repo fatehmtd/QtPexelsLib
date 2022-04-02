@@ -1,6 +1,6 @@
 #pragma once
 #include "ApiClientWorker.h"
-
+#include <QSharedPointer>
 namespace qtpexels {
 
 
@@ -21,24 +21,24 @@ public:
     // Photos //
     ////////////
 
-    PhotosPage* queryCuratedPhotos(uint page = 1, uint itemsPerPage = 15);
+    QSharedPointer<PhotosPage> queryCuratedPhotos(uint page = 1, uint itemsPerPage = 15);
 
-    PhotosPage* queryPhotos(const QString& queryTerm, int page = 1, int itemsPerPage = 15);
-    PhotosPage* queryPhotos(const QString& queryTerm, const PhotoQueryParams& queryParams, int page = 1, int itemsPerPage = 15);
+    QSharedPointer<PhotosPage> queryPhotos(const QString& queryTerm, int page = 1, int itemsPerPage = 15);
+    QSharedPointer<PhotosPage> queryPhotos(const QString& queryTerm, const PhotoQueryParams& queryParams, int page = 1, int itemsPerPage = 15);
 
-    Photo* queryPhoto(int id);
+    QSharedPointer<Photo> queryPhoto(int id);
 
     ////////////
     // Videos //
     ////////////
 
-    VideosPage* queryPopularVideos(uint page = 1, uint itemsPerPage = 15);
-    VideosPage* queryPopularVideos(const VideoPopularQueryParams& popularQueryParams, uint page = 1, uint itemsPerPage = 15);
+    QSharedPointer<VideosPage> queryPopularVideos(uint page = 1, uint itemsPerPage = 15);
+    QSharedPointer<VideosPage> queryPopularVideos(const VideoPopularQueryParams& popularQueryParams, uint page = 1, uint itemsPerPage = 15);
 
-    VideosPage* queryVideos(const QString& queryTerm, int page = 1, int itemsPerPage = 15);
-    VideosPage* queryVideos(const QString& queryTerm, const VideoQueryParams& queryParams, int page = 1, int itemsPerPage = 15);
+    QSharedPointer<VideosPage> queryVideos(const QString& queryTerm, int page = 1, int itemsPerPage = 15);
+    QSharedPointer<VideosPage> queryVideos(const QString& queryTerm, const VideoQueryParams& queryParams, int page = 1, int itemsPerPage = 15);
 
-    Video* queryVideo(int id);
+    QSharedPointer<Video> queryVideo(int id);
 
     /////////////////
     // Collections //

@@ -26,66 +26,66 @@ qtpexels::RequestStatistics qtpexels::ApiClient::requestStatistics() const
     return _apiClientWorker->requestStatistics();
 }
 
-qtpexels::PhotosPage *qtpexels::ApiClient::queryCuratedPhotos(uint page, uint itemsPerPage)
+QSharedPointer<qtpexels::PhotosPage> qtpexels::ApiClient::queryCuratedPhotos(uint page, uint itemsPerPage)
 {
-    PhotosPage *fetchableResource = new PhotosPage(this);
-    _apiClientWorker->queryCuratedPhotos(fetchableResource, page, itemsPerPage);
+    QSharedPointer<qtpexels::PhotosPage> fetchableResource(new PhotosPage(this));
+    _apiClientWorker->queryCuratedPhotos(fetchableResource.get(), page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::PhotosPage *qtpexels::ApiClient::queryPhotos(const QString &queryTerm, int page, int itemsPerPage)
+QSharedPointer<qtpexels::PhotosPage> qtpexels::ApiClient::queryPhotos(const QString &queryTerm, int page, int itemsPerPage)
 {
-    PhotosPage *fetchableResource = new PhotosPage(this);
-    _apiClientWorker->queryPhotos(fetchableResource, queryTerm, page, itemsPerPage);
+    QSharedPointer<qtpexels::PhotosPage> fetchableResource(new PhotosPage(this));
+    _apiClientWorker->queryPhotos(fetchableResource.get(), queryTerm, page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::PhotosPage *qtpexels::ApiClient::queryPhotos(const QString &queryTerm, const PhotoQueryParams &queryParams, int page, int itemsPerPage)
+QSharedPointer<qtpexels::PhotosPage> qtpexels::ApiClient::queryPhotos(const QString &queryTerm, const PhotoQueryParams &queryParams, int page, int itemsPerPage)
 {
-    PhotosPage *fetchableResource = new PhotosPage(this);
-    _apiClientWorker->queryPhotos(fetchableResource, queryTerm, queryParams, page, itemsPerPage);
+    QSharedPointer<qtpexels::PhotosPage> fetchableResource(new PhotosPage(this));
+    _apiClientWorker->queryPhotos(fetchableResource.get(), queryTerm, queryParams, page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::Photo *qtpexels::ApiClient::queryPhoto(int id)
+QSharedPointer<qtpexels::Photo> qtpexels::ApiClient::queryPhoto(int id)
 {
-    Photo*fetchableResource = new Photo(this);
-    _apiClientWorker->queryPhoto(fetchableResource, id);
+    QSharedPointer<qtpexels::Photo> fetchableResource(new Photo(this));
+    _apiClientWorker->queryPhoto(fetchableResource.get(), id);
     return fetchableResource;
 }
 
-qtpexels::VideosPage *qtpexels::ApiClient::queryPopularVideos(uint page, uint itemsPerPage)
+QSharedPointer<qtpexels::VideosPage> qtpexels::ApiClient::queryPopularVideos(uint page, uint itemsPerPage)
 {
-    VideosPage *fetchableResource = new VideosPage(this);
-    _apiClientWorker->queryPopularVideos(fetchableResource, page, itemsPerPage);
+    QSharedPointer<qtpexels::VideosPage> fetchableResource(new VideosPage(this));
+    _apiClientWorker->queryPopularVideos(fetchableResource.get(), page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::VideosPage *qtpexels::ApiClient::queryPopularVideos(const VideoPopularQueryParams &popularQueryParams, uint page, uint itemsPerPage)
+QSharedPointer<qtpexels::VideosPage> qtpexels::ApiClient::queryPopularVideos(const VideoPopularQueryParams &popularQueryParams, uint page, uint itemsPerPage)
 {
-    VideosPage *fetchableResource = new VideosPage(this);
-    _apiClientWorker->queryPopularVideos(fetchableResource, popularQueryParams, page, itemsPerPage);
+    QSharedPointer<qtpexels::VideosPage> fetchableResource(new VideosPage(this));
+    _apiClientWorker->queryPopularVideos(fetchableResource.get(), popularQueryParams, page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::VideosPage *qtpexels::ApiClient::queryVideos(const QString &queryTerm, int page, int itemsPerPage)
+QSharedPointer<qtpexels::VideosPage> qtpexels::ApiClient::queryVideos(const QString &queryTerm, int page, int itemsPerPage)
 {
-    VideosPage *fetchableResource = new VideosPage(this);
-    _apiClientWorker->queryVideos(fetchableResource, queryTerm, page, itemsPerPage);
+    QSharedPointer<qtpexels::VideosPage> fetchableResource(new VideosPage(this));
+    _apiClientWorker->queryVideos(fetchableResource.get(), queryTerm, page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::VideosPage *qtpexels::ApiClient::queryVideos(const QString &queryTerm, const VideoQueryParams &queryParams, int page, int itemsPerPage)
+QSharedPointer<qtpexels::VideosPage> qtpexels::ApiClient::queryVideos(const QString &queryTerm, const VideoQueryParams &queryParams, int page, int itemsPerPage)
 {
-    VideosPage *fetchableResource = new VideosPage(this);
-    _apiClientWorker->queryVideos(fetchableResource, queryTerm, queryParams, page, itemsPerPage);
+    QSharedPointer<qtpexels::VideosPage> fetchableResource(new VideosPage(this));
+    _apiClientWorker->queryVideos(fetchableResource.get(), queryTerm, queryParams, page, itemsPerPage);
     return fetchableResource;
 }
 
-qtpexels::Video *qtpexels::ApiClient::queryVideo(int id)
+QSharedPointer<qtpexels::Video> qtpexels::ApiClient::queryVideo(int id)
 {
-    Video *fetchableResource = new Video(this);
-    _apiClientWorker->queryVideo(fetchableResource, id);
+    QSharedPointer<qtpexels::Video> fetchableResource(new Video(this));
+    _apiClientWorker->queryVideo(fetchableResource.get(), id);
     return fetchableResource;
 }
 
