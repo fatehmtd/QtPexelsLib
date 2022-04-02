@@ -8,7 +8,7 @@ class QTPEXELS_EXPORT VideosPage : public ResultsPage {
 public:
     VideosPage() = delete;
     Q_DISABLE_COPY_MOVE(VideosPage);
-    explicit VideosPage(ApiClient* apiClient);
+    explicit VideosPage(QObject* parent);
 
     virtual bool processJSON(const QJsonObject& jsonObject) override;
 

@@ -1,5 +1,7 @@
 #include "../include/CollectionsPage.h"
 
-CollectionsPage::CollectionsPage()
+
+qtpexels::CollectionsPage::CollectionsPage(QObject *parent) : FetchableResource(parent)
 {
+
 }

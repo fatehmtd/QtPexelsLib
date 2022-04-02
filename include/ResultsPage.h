@@ -6,7 +6,7 @@ class QTPEXELS_EXPORT ResultsPage : public FetchableResource {
 public:
     ResultsPage() = delete;
     Q_DISABLE_COPY_MOVE(ResultsPage);
-    explicit ResultsPage(ApiClient* apiClient);
+    explicit ResultsPage(QObject* parent);
 
     uint pageIndex() const;
     uint itemsPerPage() const;

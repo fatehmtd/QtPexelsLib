@@ -9,7 +9,7 @@ class QTPEXELS_EXPORT Collection : public FetchableResource {
 public:
     Collection() = delete;
     Q_DISABLE_COPY_MOVE(Collection);
-    explicit Collection(ApiClient* apiClient);
+    explicit Collection(QObject* parent);
 
     bool processJSON(const QJsonObject& jsonObject) override;
 

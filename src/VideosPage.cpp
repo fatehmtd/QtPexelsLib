@@ -1,8 +1,8 @@
 #include "../include/VideosPage.h"
 #include <QJsonArray>
 
-qtpexels::VideosPage::VideosPage(ApiClient* apiClient)
-    : ResultsPage(apiClient)
+qtpexels::VideosPage::VideosPage(QObject* parent)
+    : ResultsPage(parent)
 {
 }
 
@@ -15,7 +15,7 @@ bool qtpexels::VideosPage::processJSON(const QJsonObject& jsonObject)
 
     std::for_each(jsonVideosArray.begin(), jsonVideosArray.end(), [=](const QJsonValue& jsonValue) {
         const auto& jsonVideo = jsonValue.toObject();
-        Video* video = new Video(apiClient());
+        Video* video = new Video(this);
         video->processJSON(jsonVideo);
         _videos << video;
     });

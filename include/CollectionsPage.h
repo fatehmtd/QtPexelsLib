@@ -1,9 +1,15 @@
 #pragma once
+#include "FetchableResource.h"
 
+namespace qtpexels {
 
-class CollectionsPage
+// TODO: implement the collections api logic
+
+class CollectionsPage : public FetchableResource
 {
 public:
-    CollectionsPage();
+    CollectionsPage() = delete;
+    Q_DISABLE_COPY_MOVE(CollectionsPage);
+    explicit CollectionsPage(QObject* parent);
 };
-
+}

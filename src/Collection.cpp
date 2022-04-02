@@ -1,7 +1,7 @@
 #include "../include/Collection.h"
 
-qtpexels::Collection::Collection(ApiClient* apiClient)
-    : FetchableResource(apiClient)
+qtpexels::Collection::Collection(QObject* parent)
+    : FetchableResource(parent)
 {
 }
 

@@ -23,7 +23,7 @@ class QTPEXELS_EXPORT Video : public FetchableResource {
 public:
     Video() = delete;
     Q_DISABLE_COPY_MOVE(Video);
-    explicit Video(ApiClient* apiClient);
+    explicit Video(QObject* parent);
 
     int width() const;
     int height() const;

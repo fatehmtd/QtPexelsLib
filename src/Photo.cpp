@@ -2,8 +2,8 @@
 #include <QDebug>
 #include <QMap>
 
-qtpexels::Photo::Photo(ApiClient* apiClient)
-    : FetchableResource(apiClient)
+qtpexels::Photo::Photo(QObject* parent)
+    : FetchableResource(parent)
 {
 }
 

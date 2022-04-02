@@ -40,16 +40,18 @@ set(libSrc
     ./include/Video.h
     ./src/VideosPage.cpp
     ./include/VideosPage.h
+    ./include/ApiClientWorker.h
+    ./src/ApiClientWorker.cpp
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 if(BUILD_SHARED_LIBS)
     add_library(QtPexelsLib SHARED ${libSrc})
-	target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=1)
+        target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=1)
 else()
     add_library(QtPexelsLib STATIC ${libSrc})
-	target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=0)
+        target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=0)
 endif()
 
 target_link_libraries(QtPexelsLib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
@@ -70,8 +72,8 @@ if(BUILD_EXAMPLE)
     )
 
     target_compile_definitions(QtPexelsLib INTERFACE QTPEXELS_LIB=0)
-	#target_compile_definitions(QtPexelsLib INTERFACE BUILD_STATIC=1)
-    find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network REQUIRED)    
+        #target_compile_definitions(QtPexelsLib INTERFACE BUILD_STATIC=1)
+    find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network REQUIRED)
     add_executable(QtPexelsLibExample ${exampleSrc})
     target_link_libraries(QtPexelsLibExample PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network QtPexelsLib)
 endif()
