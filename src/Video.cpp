@@ -1,8 +1,8 @@
 #include "../include/Video.h"
 #include <QJsonArray>
 
-qtpexels::Video::Video(ApiClient* apiClient)
-    : FetchableResource(apiClient)
+qtpexels::Video::Video(QObject* parent)
+    : FetchableResource(parent)
 {
 }
 

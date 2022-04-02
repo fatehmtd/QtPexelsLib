@@ -3,8 +3,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-qtpexels::PhotosPage::PhotosPage(qtpexels::ApiClient* apiClient)
-    : ResultsPage(apiClient)
+qtpexels::PhotosPage::PhotosPage(QObject* parent)
+    : ResultsPage(parent)
 {
 }
 
@@ -17,7 +17,7 @@ bool qtpexels::PhotosPage::processJSON(const QJsonObject& jsonObject)
     const QJsonArray& jsonArray = jsonObject["photos"].toArray();
 
     std::for_each(jsonArray.begin(), jsonArray.end(), [=](const QJsonValue& jsonValue) {
-        auto photo = new Photo(apiClient());
+        auto photo = new Photo(this);
         photo->processJSON(jsonValue.toObject());
         _photos << photo;
     });

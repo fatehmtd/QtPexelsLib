@@ -1,7 +1,7 @@
 #include "../include/ResultsPage.h"
 
-qtpexels::ResultsPage::ResultsPage(ApiClient* apiClient)
-    : FetchableResource(apiClient)
+qtpexels::ResultsPage::ResultsPage(QObject* parent)
+    : FetchableResource(parent)
 {
     _pageIndex = 1;
     _itemsPerPage = 20;

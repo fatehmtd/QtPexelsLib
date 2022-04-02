@@ -62,28 +62,31 @@ void connectLogging(qtpexels::ResultsPage* resultsPage, QString title)
 {
     QObject::connect(resultsPage, &qtpexels::ResultsPage::finished, resultsPage, [=]() {
         logInfo(resultsPage, title);
-        logRequestStats(resultsPage->apiClient());
+        //logRequestStats(resultsPage->apiClient());
     });
 
     QObject::connect(resultsPage, &qtpexels::ResultsPage::errorOccured, resultsPage, [=]() {
         qDebug() << "*** Error : " << title << " message : " << resultsPage->error();
-        logRequestStats(resultsPage->apiClient());
+        //logRequestStats(resultsPage->apiClient());
     });
 }
 
-void queryCuratedPhotos(const qtpexels::ApiClient& client)
+void queryCuratedPhotos(qtpexels::ApiClient& client)
 {
-    auto resultsPage = client.queryCurratedPhotos(1, 10);
+    auto resultsPage = client.queryCuratedPhotos(1, 10);
     connectLogging(resultsPage, "** Query Curated Photos : ");
+
+    resultsPage->fetch();
 }
 
-void queryPopularVideos(const qtpexels::ApiClient& client)
+void queryPopularVideos(qtpexels::ApiClient& client)
 {
     auto resultsPage = client.queryPopularVideos(1, 10);
     connectLogging(resultsPage, "** Query popular videos : ");
+    resultsPage->fetch();
 }
 
-void queryPhotosWithParams(const qtpexels::ApiClient& client)
+void queryPhotosWithParams(qtpexels::ApiClient& client)
 {
     qtpexels::PhotoQueryParams queryParams;
     //queryParams.orientation = qtpexels::Orienation::LANDSCAPE;
@@ -95,13 +98,15 @@ void queryPhotosWithParams(const qtpexels::ApiClient& client)
         10); // number of items per page
 
     connectLogging(resultsPage, "** Query Photos with params : ");
+    resultsPage->fetch();
 }
 
-void queryVideosWithParams(const qtpexels::ApiClient& client)
+void queryVideosWithParams(qtpexels::ApiClient& client)
 {
     auto resultsPage = client.queryVideos("green", 1, 10); // search videos with the "green" keyword
 
     connectLogging(resultsPage, "** Query Videos with params : ");
+    resultsPage->fetch();
 }
 
 int main(int argc, char* argv[])

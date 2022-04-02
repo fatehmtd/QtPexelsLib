@@ -19,7 +19,7 @@ public:
 
     Photo() = delete;
     Q_DISABLE_COPY_MOVE(Photo);
-    explicit Photo(ApiClient* apiClient);
+    explicit Photo(QObject* parent);
 
     bool processJSON(const QJsonObject& jsonObject) override;
 
