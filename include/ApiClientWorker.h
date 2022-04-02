@@ -5,15 +5,6 @@
 #include <QMutexLocker>
 
 namespace qtpexels {
-    static const QString PEXELS_URL = "https://api.pexels.com/v1";
-    // Photos
-    static const QString PEXELS_CURATED_PHOTOS_URL = QString("%1/curated").arg(PEXELS_URL);
-    static const QString PEXELS_SEARCH_PHOTOS_URL = QString("%1/search").arg(PEXELS_URL);
-    static const QString PEXELS_PHOTO_URL = QString("%1/photos").arg(PEXELS_URL);
-    // Videos
-    static const QString PEXELS_POPULAR_VIDEOS_URL = QString("%1/videos/popular").arg(PEXELS_URL);
-    static const QString PEXELS_SEARCH_VIDEOS_URL = QString("%1/videos/search").arg(PEXELS_URL);
-    static const QString PEXELS_VIDEO_URL = QString("%1/videos/videos").arg(PEXELS_URL);
 
     class Photo;
     class Video;
@@ -104,7 +95,7 @@ namespace qtpexels {
         /////////////////
 
     signals:
-        void fetchResource(const QUrl& url, FetchableResource* fetchableResource);
+        void fetchResource(const QUrl& url, qtpexels::FetchableResource* fetchableResource);
 
     private:
         void onFetchResourceRequested(const QUrl& url, FetchableResource* fetchableResource);
@@ -117,6 +108,17 @@ namespace qtpexels {
         QString _apiKey;
         QNetworkAccessManager* _networkAccessManager = nullptr;
         mutable RequestStatistics _requestStatistics;
+
+        // Api urls
+        const QString PEXELS_URL = "https://api.pexels.com/v1";
+        // Photos
+        const QString PEXELS_CURATED_PHOTOS_URL = QString("%1/curated").arg(PEXELS_URL);
+        const QString PEXELS_SEARCH_PHOTOS_URL = QString("%1/search").arg(PEXELS_URL);
+        const QString PEXELS_PHOTO_URL = QString("%1/photos").arg(PEXELS_URL);
+        // Videos
+        const QString PEXELS_POPULAR_VIDEOS_URL = QString("%1/videos/popular").arg(PEXELS_URL);
+        const QString PEXELS_SEARCH_VIDEOS_URL = QString("%1/videos/search").arg(PEXELS_URL);
+        const QString PEXELS_VIDEO_URL = QString("%1/videos/videos").arg(PEXELS_URL);
     };
 
 }
