@@ -1,6 +1,7 @@
 #pragma once
-#include "Photo.h"
-#include "ResultsPage.h"
+
+#include "qtpexels/Photo.h"
+#include "qtpexels/ResultsPage.h"
 #include <QList>
 
 namespace qtpexels {

@@ -1,4 +1,5 @@
-#include "../include/Video.h"
+
+#include "qtpexels/Video.h"
 #include <QJsonArray>
 
 qtpexels::Video::Video(QObject* parent)

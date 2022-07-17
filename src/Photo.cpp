@@ -1,4 +1,5 @@
-#include "../include/Photo.h"
+
+#include "qtpexels/Photo.h"
 #include <QDebug>
 #include <QMap>
 

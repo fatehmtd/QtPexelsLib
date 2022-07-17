@@ -1,5 +1,6 @@
 #pragma once
-#include "ApiClientWorker.h"
+
+#include "qtpexels/ApiClientWorker.h"
 
 namespace qtpexels {
 

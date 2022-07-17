@@ -1,5 +1,6 @@
 #pragma once
-#include "FetchableResource.h"
+
+#include "qtpexels/FetchableResource.h"
 
 namespace qtpexels {
 class QTPEXELS_EXPORT ResultsPage : public FetchableResource {

@@ -1,6 +1,7 @@
-#include "../include/ApiClient.h"
-#include "../include/PhotosPage.h"
-#include "../include/VideosPage.h"
+
+#include "qtpexels/ApiClient.h"
+#include "qtpexels/PhotosPage.h"
+#include "qtpexels/VideosPage.h"
 #include <QThread>
 
 qtpexels::ApiClient::ApiClient(const QString& apiKey, QObject* parent)

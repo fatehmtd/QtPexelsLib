@@ -1,6 +1,7 @@
 #pragma once
-#include "ResultsPage.h"
-#include "Video.h"
+
+#include "qtpexels/ResultsPage.h"
+#include "qtpexels/Video.h"
 #include <QList>
 
 namespace qtpexels {
