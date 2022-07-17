@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ApiClient.h"
+#include "qtpexels/ApiClient.h"
 #include <QJsonObject>
 #include <QString>
 

@@ -1,5 +1,6 @@
-#include "../include/PhotosPage.h"
-#include "../include/Photo.h"
+
+#include "qtpexels/PhotosPage.h"
+#include "qtpexels/Photo.h"
 #include <QJsonArray>
 #include <QJsonObject>
 

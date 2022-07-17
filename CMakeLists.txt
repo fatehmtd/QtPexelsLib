@@ -21,43 +21,42 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Network REQUIRED)
 set(CMAKE_DEBUG_POSTFIX d)
 
 set(libSrc
-    ./include/qtpexels_global.h
     ./src/ApiClient.cpp
-    ./include/ApiClient.h
     ./src/Collection.cpp
-    ./include/Collection.h
     ./src/CollectionsPage.cpp
-    ./include/CollectionsPage.h
     ./src/FetchableResource.cpp
-    ./include/FetchableResource.h
     ./src/Photo.cpp
-    ./include/Photo.h
     ./src/PhotosPage.cpp
-    ./include/PhotosPage.h
     ./src/ResultsPage.cpp
-    ./include/ResultsPage.h
     ./src/Video.cpp
-    ./include/Video.h
     ./src/VideosPage.cpp
-    ./include/VideosPage.h
-    ./include/ApiClientWorker.h
     ./src/ApiClientWorker.cpp
+    ./include/qtpexels/qtpexels_global.h
+    ./include/qtpexels/ApiClient.h
+    ./include/qtpexels/Collection.h
+    ./include/qtpexels/CollectionsPage.h
+    ./include/qtpexels/FetchableResource.h
+    ./include/qtpexels/Photo.h
+    ./include/qtpexels/PhotosPage.h
+    ./include/qtpexels/ResultsPage.h
+    ./include/qtpexels/Video.h
+    ./include/qtpexels/VideosPage.h
+    ./include/qtpexels/ApiClientWorker.h
 )
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 if(BUILD_SHARED_LIBS)
     add_library(QtPexelsLib SHARED ${libSrc})
-        target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=1)
+    target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=1)
 else()
     add_library(QtPexelsLib STATIC ${libSrc})
-        target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=0)
+    target_compile_definitions(QtPexelsLib PUBLIC BUILD_SHARED=0)
 endif()
 
-target_link_libraries(QtPexelsLib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
-
+target_include_directories(QtPexelsLib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include)
 target_compile_definitions(QtPexelsLib PUBLIC QTPEXELS_LIB=1)
-
+target_link_libraries(QtPexelsLib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 
 
 ##############################
@@ -72,12 +71,11 @@ if(BUILD_EXAMPLE)
     )
 
     target_compile_definitions(QtPexelsLib INTERFACE QTPEXELS_LIB=0)
-        #target_compile_definitions(QtPexelsLib INTERFACE BUILD_STATIC=1)
+    # target_compile_definitions(QtPexelsLib INTERFACE BUILD_STATIC=1)
     find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Network REQUIRED)
     add_executable(QtPexelsLibExample ${exampleSrc})
+    target_include_directories(QtPexelsLibExample PRIVATE ${CMAKE_CURRENT_LIST_DIR}/include)
     target_link_libraries(QtPexelsLibExample PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network QtPexelsLib)
 endif()
-
-
 
 

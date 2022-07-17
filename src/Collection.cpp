@@ -1,4 +1,5 @@
-#include "../include/Collection.h"
+
+#include "qtpexels/Collection.h"
 
 qtpexels::Collection::Collection(QObject* parent)
     : FetchableResource(parent)

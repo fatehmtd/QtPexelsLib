@@ -1,4 +1,5 @@
-#include "../include/FetchableResource.h"
+
+#include "qtpexels/FetchableResource.h"
 #include <QNetworkReply>
 #include <QJsonDocument>
 

@@ -1,6 +1,7 @@
-#include "../include/ApiClientWorker.h"
-#include "../include/PhotosPage.h"
-#include "../include/VideosPage.h"
+
+#include "qtpexels/ApiClientWorker.h"
+#include "qtpexels/PhotosPage.h"
+#include "qtpexels/VideosPage.h"
 #include <QDateTime>
 #include <QDebug>
 #include <QNetworkReply>

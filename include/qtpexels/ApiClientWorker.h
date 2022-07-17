@@ -1,6 +1,6 @@
 #pragma once
 
-#include "qtpexels_global.h"
+#include "qtpexels/qtpexels_global.h"
 #include <QNetworkAccessManager>
 #include <QMutexLocker>
 

@@ -1,4 +1,5 @@
-#include "../include/ResultsPage.h"
+
+#include "qtpexels/ResultsPage.h"
 
 qtpexels::ResultsPage::ResultsPage(QObject* parent)
     : FetchableResource(parent)

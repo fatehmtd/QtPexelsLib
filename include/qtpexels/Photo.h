@@ -1,5 +1,6 @@
 #pragma once
-#include "FetchableResource.h"
+
+#include "qtpexels/FetchableResource.h"
 #include <QObject>
 
 namespace qtpexels {
